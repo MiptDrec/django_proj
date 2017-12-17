@@ -1,0 +1,355 @@
+body,html {
+   margin:0px;
+    padding:0px;
+    
+}
+
+* html .clear {
+        height: 1%;
+}
+#container {
+    min-width:600px;
+    margin-left:20%;
+    margin-right:20%;
+    width:60%;
+    height:justify;
+    min-height:600px;
+   background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+}
+#header{
+ 
+    background:linear-gradient(30deg, red, #C5EEE8);
+    scroll:none;
+    heigth:200px;
+    overflow:hidden;
+}
+ul {
+    width:justify;
+    text-align:left;
+}
+
+
+@keyframes circle_in_header {
+    from {transform:rotate(45deg);}
+    to {transform:rotate(-45deg);}
+}
+#circle1 {
+    float:right;
+width: 60px; height: 60px; margin: 10px;
+background: yellow;
+position: relative;
+transform: rotate(20deg);
+animation-duration:5s;
+animation-name:circle_in_header;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+}
+#circle1:before {
+content: "";
+height: 60px; width: 60px;
+background: inherit;
+position: absolute; top: 0; left: 0;
+transform: rotate(135deg);}
+
+.div_of_left_menu {
+    text-align:center;
+    padding-top:15px;
+    padding-bottom:10px;
+    border-style:solid;
+    border-width:1 px;
+    border-color:green;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:15%;
+    margin-rigth:15%;
+    width:70%;
+    animation-name:aaa-1;
+    animation-duration:1s;
+    font-size:14pt;
+    color:black;
+}
+.div_of_left_menu:hover {
+    animation-name:aaa;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+}
+@keyframes aaa-1 {
+    from {background-color:red; border-radius:30px; }
+    to {background-color:none; border-radius:0px; }
+}
+@keyframes aaa {
+    from {background-color:none; border-radius:0px; }
+    to {background-color:red; border-radius:30px;}
+}
+#left{
+    width:20%;
+    float:left;
+    align:center;
+    margin-left:5%;
+    
+    
+}
+.box_of_traffic_ligth {
+    float:right;
+    margin-right:20%;
+    margin-bottom:40px;
+   border-style:solid;
+   border-width:2px;
+   border-color:black;
+   background-color:black;
+   width: 80px;
+   heigth:100px;
+}
+@keyframes animation_red {
+    0% {opacity: 1;}
+    10% {opacity: 1;}
+    20% {opacity: 1;}
+    30% {opacity: 1;}
+    40% {opacity: 1;}
+    50% {opacity: 0;}
+    60% {opacity: 0;}
+    70% {opacity: 0;}
+    80% {opacity: 0;}
+    90% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes animation_yellow {
+    0% {opacity: 0;}
+    10% {opacity: 0;}
+    20% {opacity: 0;}
+    30% {opacity: 1;}
+    40% {opacity: 1;}
+    50% {opacity: 0;}
+    60% {opacity: 0;}
+    70% {opacity: 0;}
+    80% {opacity: 0;}
+    90% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes animation_green {
+    0% {opacity: 0;}
+    10% {opacity: 0;}
+    20% {opacity: 0;}
+    30% {opacity: 0;}
+    40% {opacity: 0;}
+    50% {opacity: 1;}
+    60% {opacity: 1;}
+    70% {opacity: 1;}
+    80% {opacity: .1;}
+    90% {opacity: 1;}
+    100% {opacity: .1;}
+}
+
+#traffic_ligth_3 {
+    animation-name:animation_green;
+    animation-duration:10s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:70%;
+    height:50px;
+    margin-bottom: 10px;
+    border-radius:50%;
+    background-color:green;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:10px;
+    
+}
+#traffic_ligth_2 {
+    animation-name:animation_yellow;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+    animation-fill-mode:forwards;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:70%;
+    height:50px;
+    border-radius:50%;
+    background-color:yellow;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:10px;
+}
+#traffic_ligth_1 {
+    margin-left:15%;
+    margin-right:15%;
+    animation-name:animation_red;
+    animation-iteration-count:infinite;
+    animation-duration:10s;
+    animation-fill-mode:forwards;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:70%;
+    height:50px;
+    border-radius:50%;
+    background-color: red;
+    margin-top:10px;
+}
+
+
+#clear {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0px;
+    margin: 0px
+}
+
+#footer {
+    border-style:solid;
+    border-color: blue;
+    border-width:2px;
+    width:100%;
+}
+.head_of_post {
+    border-width:2px;
+    border-color:red;
+    border-style:solid;
+    padding:0px;
+    
+    overflow: auto;
+   
+    
+}
+.date {
+    float:right;
+}
+.title {
+    float:left;
+}
+.article {
+    padding-top:10 px;
+}
+
+.left_div,.rigth_div {
+    border-radius: 10px;
+    border-color: green;
+    border-style:solid;
+    text-align: center;
+    margin:10px;
+    }
+  
+p {
+    text-align:justify;
+}
+.name_of_activity {
+    border-color: blue;
+    border-radius: 10px;
+    padding: 10px;
+    width: justify;
+    height: 10px;
+    background-color:blue;
+}
+.name_of_activity_1 {
+        float:left;
+        width: 20%;
+}
+.date_of_activity {
+        float:right;
+        width: 20%;
+}
+#content {
+
+    margin-left:30%;
+    margin-right:10%;
+  
+}
+.category_of_activity {
+    float:left;
+}
+.head_of_post:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#footer {
+    background-color:d23123;
+}
+#clear {
+    clear:both;
+}
+.author_of_activity {
+    float:left;
+}
+.date_of_activity {
+    float:right;
+}
+.clear_psevdo:after {
+        content: "&nbsp;";
+        display: inline;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+        line-height: 0;
+        margin:0px;
+        
+}
+.text_of_activity {
+    margin-top: 10px;
+}
+.head_of_activity {
+    border-style: solid;
+    border-width:2px;
+    border-color:black;
+    border-radius: 2px;
+    overflow: auto;
+}
+.cubs {
+    border-style:solid;
+    border-width:2px;
+    border-color:black;
+}
+.cub1 {
+    margin-left:20px;
+    text-align:center;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:40px;
+    height:40px;
+    background-color: red;
+    margin-top:10px;
+    float:left;
+  
+}
+.cub2 {
+    
+    margin-left:80px;
+    text-align:center;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:40px;
+    height:40px;
+    background-color: red;
+    margin-top:10px;
+
+}
+.cub3 {
+    margin-left: 140px;
+    text-align:center;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:40px;
+    height:40px;
+    background-color: red;
+    margin-top:10px;
+    overflow:hidden;
+}
+.cub4 {
+    margin-left:200px;
+    text-align:center;
+    border-style:solid;
+    border-width:2px;
+    border-color: blue;
+    width:40px;
+    height:40px;
+    background-color: red;
+    margin-top:0px;
+}

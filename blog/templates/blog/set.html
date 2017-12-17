@@ -1,0 +1,14 @@
+    {% extends 'blog/base.html' %}
+    
+    
+    
+      {% block content %}
+   
+      <h1> {{sets.title}} </h1>
+    
+      <p> {{ sets.text|linebreaks|safe}}</p>    
+     
+    
+      
+      </div>
+      {% endblock content %}

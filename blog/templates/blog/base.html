@@ -1,0 +1,57 @@
+
+    {% load staticfiles %}
+
+    <html>
+        <head>
+            <title> Развивающие занятия дома с мамой</title>
+           
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        </head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1><a href="/">Развивающие занятия дома с мамой</a></h1>
+	</div>                   
+
+        <div id="left">
+            <div class="left_div"> Занятия для детей
+                <div class="div_of_left_menu"><a href="/activities/0-1/">0-1 лет</a></div>
+                <div class="div_of_left_menu"> <a href="/activities/1-2/">  1-2 лет </a></div>
+                <div class="div_of_left_menu"><a href="/activities/2-3/"> 2-3 лет </a></div>
+                <div class="div_of_left_menu"><a href="/activities/3-4/"> 3-4 лет </a></div>
+                <div class="div_of_left_menu"><a href="/activities/4-5/"> 4-5 лет </a></div>
+                <div class="div_of_left_menu"><a href="/activities/5-6/"> 5-6 лет </a></div>
+                <div class="div_of_left_menu"><a href="/activities/6-7/"> 6-7 лет </a></div>
+            
+            </div>
+        
+        <div class="left_div"> Самые популярные статьи 
+         {% for best in best_articles %}
+             
+               <div class="div_of_left_menu"> <a href="{% url 'post_detail' pk=best.pk %}">{{ best.title }}</a></div>     
+         
+        {% endfor %}
+        </div>
+        
+        <div class="left_div"> Занятия для детей по категориям 
+        <div class="div_of_left_menu"> <a href=""> Лепка </a></div>
+        <div class="div_of_left_menu"><a href=""> Рисование </a></div>
+        <div class="div_of_left_menu"> <a href=""> Математика </a></div>
+        <div class="div_of_left_menu"> <a href=""> Чтение </a></div>
+        
+        </div>
+        
+        </div>
+   
+        <div id="content">
+		<a href="{% url 'sets_new' %}" class = top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% block content %}
+            {% endblock %}
+        </div>
+            
+        
+        <div id="clear"> </div>
+        <div id="footer"> Это подвал сайта </div>
+       </div>
+    </body>
+    </html>

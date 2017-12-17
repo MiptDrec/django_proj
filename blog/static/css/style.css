@@ -1,0 +1,53 @@
+body,html {
+    margin:0px;
+    padding:0px;
+    
+}
+
+#container {
+    min-width:350px;
+    width:100%;
+   // margin:0 auto; i don't know why it was used in tutorial
+}
+#header{
+    background-color:#63b9da;
+    height:100px;
+}
+ul {
+    text-align:left;
+}
+#left{
+
+ 
+    width:20%;
+    float:left;
+    
+}
+#right {
+
+    float:right;
+    width:20%;
+
+}
+.left_div,.rigth_div {
+    border-radius: 10px;
+    border-color: green;
+    border-style:solid;
+    text-align: center;
+    margin:10px;
+    }
+  
+p {
+    text-align:justify;
+}
+#content {
+
+    margin-left:25%;
+    margin-right:25%;
+}
+#footer {
+    background-color:d23123;
+}
+#clear {
+    clear:both;
+}

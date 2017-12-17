@@ -1,0 +1,11 @@
+    {% extends 'blog/base.html' %}    
+    
+        
+      {% block content %}
+      <h2> Страница по развитию детей   {{post}}-{{post|add:"1"}} лет. </h2> <p>Занятия по данному возрасту: </p><ul>
+      {% for activity in activities %}
+      
+      <li><a href="{% url 'activities' pk1=activity.pk %}"> {{activity.title}}  </a></li>
+      {% endfor %}</ul>
+      
+      {% endblock content %}
