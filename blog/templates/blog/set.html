@@ -3,12 +3,17 @@
     
     
       {% block content %}
-   
-      <h1> {{sets.title}} </h1>
     
-      <p> {{ sets.text|linebreaks|safe}}</p>    
-     
+
+	{% for img in imgs %}
+
+  
+  <img src='{{img.photo.url}}'/>	
     
-      
+    {% endfor %}  
+  <h1> {{sets.title}} </h1>
+
+      <p> {{ sets.text|safe}}</p>
+
       </div>
       {% endblock content %}

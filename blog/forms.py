@@ -10,4 +10,4 @@ class SetsForm(forms.ModelForm):
 class UploadPhotoToSets(forms.ModelForm):
 	class Meta:
 		model = Sets	
-		fields = ('title', 'text','pic')
+		fields = ('title', 'text')

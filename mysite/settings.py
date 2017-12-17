@@ -38,8 +38,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
+    'ckeditor_uploader',
 )
-
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -100,7 +102,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'pic_fold/')
-MEDIA_URL = '/pic_fold/'
+MEDIA_ROOT = os.path.join(os.path.join(os.path.dirname(__file__), '../media'))
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
