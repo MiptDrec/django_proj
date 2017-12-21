@@ -1,0 +1,11 @@
+    {% extends 'blog/base.html' %}
+    
+        
+      {% block content %}
+      <h2> Наборы для детей   {% if age == '0' %} до 1 года {% elif age == '1' %} 1 года {% else %} {{age}} лет. {%endif%} </h2> <ul class = 'uls'>
+      {% for set in age_sets %}
+      
+      <li><a href="{% url 'sets' pk=set.pk %}"> {{set.title}}  </a><br><br></li>
+      {% endfor %}</ul>
+      
+      {% endblock content %}

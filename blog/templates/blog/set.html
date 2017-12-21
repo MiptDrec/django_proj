@@ -5,15 +5,21 @@
       {% block content %}
     
 
-	{% for img in imgs %}
-
-  
-  <img src='{{img.photo.url}}'/>	
-    
-    {% endfor %}  
   <h1> {{sets.title}} </h1>
 
+<p class='headers'> Этот набор рассчитан на детей: {{sets.age|join:", "}} лет.
+<p class="headers"> Описание набора: </p>
       <p> {{ sets.text|safe}}</p>
+<p class="headers"> Занятия, которые можно провести: </p>
 
+ <ul class='uls'>
+      {% for elem in active %}
+      
+      <li><a href="{% url 'activities' pk1=elem.pk %}"> {{elem.title}}  </a><br><br></li>
+      {% endfor %}</ul>
+
+<p class='headers'> Стоимость набора: {{sets.price}} рублей</p>
+<p > <a class = "buttons" href='https://vk.com/market-106980444?w=page-106980444_50113221'>Заказать набор</a></p>
+<br><br><br><br>
       </div>
       {% endblock content %}

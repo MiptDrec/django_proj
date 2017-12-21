@@ -4,19 +4,20 @@
     
       {% block content %}
       
-     <div class="clear_psevdo">
-      <h1> Занятие "{{activities}}" </h1>
-      <div class="head_of_activity">
-        <div class="author_of_activity"> 
-            Автор: {{activities.author}} <br> Категория: {% if "lep" in activities.category %} Лепка {% endif %}
-        </div>
-        <div class="date_of_activity">
-            Дата публикации: {{activities.published_date}}            
-        </div>
-       </div>
-     </div> <br/>
-      <div class="text_of_activity"> {{ activities.text}}</div>
-      
+
+     <h2> Занятие "{{activities}}" </h2>
+	  <p class='headers'> Подходит для детей: {{activities.age|join:', '}} лет. </p>
+        <p class='headers'> Описание занятия: </p>
+	<p> {{activities.text}} </p>
+         <p class='headers'> Подходящий набор: </p>
+		{{sets}}
+           
+    
+  
+    {{ pre|safe}}
+
+
+  
       {% endblock content %}
       
  

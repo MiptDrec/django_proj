@@ -19,20 +19,16 @@ class Post(models.Model):
 		return self.title
               
 class Activities(models.Model):
-	author = models.ForeignKey('auth.User')
+	sets = models.ForeignKey('Sets', to_field='brief')
 	title = models.CharField(max_length=200)
-	text = models.TextField()
+	text = RichTextUploadingField()
 	published_date = models.DateTimeField(blank = True, null = True)
-	age = models.PositiveIntegerField()
+	age = models.CharField(max_length=8)
+#	The field 'age' has the following format, for example: '42'
+#	It means that the activity is for chldren 4 years old or 2 years old
+
     # XXXXXXX
-	Lepka = 'lep'
-	Math = 'mat'
-	drawing = 'dra'
-	motorika = 'mot'
-	none_cat = 'non'
-	category_choice = ( (Lepka, 'Лепка'), (Math, 'Математика'), (drawing, 'Рисование'), (motorika, 'Моторика'))
-	category = models.CharField(max_length=3, choices = category_choice, default = none_cat)
-    
+   
 	def publish(self):
 		self.published_date = timezone.now()
 		self.save()
@@ -43,23 +39,14 @@ class Activities(models.Model):
 
 class Sets(models.Model):
 	author = models.ForeignKey('auth.User')
+	brief = models.CharField(max_length=3, unique=True, default = 'sdf')
 	title = models.CharField(max_length = 100)
 	text = RichTextUploadingField()
-#	pic = models.ImageField(upload_to = 'photos',verbose_name='Photo')
-#	photos = ArrayField(models.ImageField(upload_to = 'photos',vebrbose_name='Photo'))
-#	def add_photo(self, photo):
-#		self.photos.append(photo)	
-#	pictures = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/1.jpg')
-
-#	def insert_photo(self, photo):
-#		self.pictures.append(photo)	
+	age = models.CharField(max_length=8)
+	price = models.IntegerField()	
+	main_image = models.ImageField(default='photos/1.jpeg')
 	def publish(self):
 		self.save()
 	def __str__(self):
 		return self.title
-class Photo(models.Model):
-	sets = models.ForeignKey('Sets')
-	photo = models.ImageField(upload_to = 'photos', verbose_name = 'Photo')
 
-	def __str__(self):
-		return str(self.sets)

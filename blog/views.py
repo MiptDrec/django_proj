@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, get_object_or_404,redirect
 from django.utils import timezone
-from .models import Post, Activities,Sets, Photo
+from .models import Post, Activities,Sets
 from .forms import SetsForm,UploadPhotoToSets
 best_articles = Post.objects.order_by('-views').all()[:3]
 
@@ -10,6 +10,7 @@ def main(request):
 	posts = Sets.objects.all()
 	best_articles = Post.objects.order_by('-views').all()[:3]
 	return render(request, 'blog/main.html', {'posts':posts, 'best_articles':best_articles})
+
 def post_detail(request,pk):
 	post = get_object_or_404(Post, pk=pk)
 	postview =  Post.objects.get(pk=pk)
@@ -18,17 +19,23 @@ def post_detail(request,pk):
 	postview.save()
 	best_articles = Post.objects.order_by('-views').all()[:3]
 	return render(request, 'blog/post_detail.html', {'post': post, 'best_articles':best_articles})
+
 def activities(request, pk1):
 	activities = get_object_or_404(Activities, pk=pk1)
-	return render(request, 'blog/activities.html', {'activities': activities, 'best_articles':best_articles})
-def age_of_activities(request,pk3):
-	activities = Activities.objects.filter(age__contains=pk3)
-	string = 'blog/'+pk3+'-'+str(int(pk3)+1)+'.html'
-	return render(request, string, {'post': pk3, 'activities': activities, 'best_articles':best_articles})   
+	prev = preview_of_set(activities.sets)
+	return render(request, 'blog/activities.html', {'activities': activities,'pre':prev } )
+
+  
+def gen_sets(request, pk3):
+	age_sets = Sets.objects.filter(age__contains=pk3)	
+	return render(request, 'blog/age_set.html', {'age':pk3,'age_sets':age_sets})
+
 def sets(request, pk):
-	imgs = Photo.objects.filter(sets = pk)
-	sets = Sets.objects.get(pk = pk)
-	return render(request, 'blog/set.html', {'sets':sets, 'imgs':imgs})	
+	
+	set_ = Sets.objects.get(pk = pk)
+	
+	active = Activities.objects.filter(sets=set_.brief)
+	return render(request, 'blog/set.html', {'sets':set_, 'active':active})	
 
 def sets_new(request):
 	if request.method == "POST":
@@ -42,3 +49,10 @@ def sets_new(request):
 	else:
 		form = UploadPhotoToSets()
 	return render(request, 'blog/set_edit.html', {'form': form})
+
+def preview_of_set(b):
+	string = '<div class="preview">'
+	string += '<a href="/sets/'+str(b.pk)+'">'+b.title+'</a> <br><img width=80% src="'
+	string += b.main_image.url+'"\></div></a>'
+	return string
+
