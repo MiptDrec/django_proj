@@ -1,4 +1,4 @@
-
+import random
 from django.shortcuts import render, get_object_or_404,redirect
 from django.utils import timezone
 from .models import Post, Activities,Sets
@@ -7,9 +7,12 @@ best_articles = Post.objects.order_by('-views').all()[:3]
 
 # Create your views here.
 def main(request):
-	posts = Sets.objects.all()
-	best_articles = Post.objects.order_by('-views').all()[:3]
-	return render(request, 'blog/main.html', {'posts':posts, 'best_articles':best_articles})
+	sets = Sets.objects.all()
+	prev_s = []
+	for el in sets:
+		prev_s.append(preview_of_set(el))
+
+	return render(request, 'blog/main.html', {'posts':sets,'prevs':prev_s})
 
 def post_detail(request,pk):
 	post = get_object_or_404(Post, pk=pk)
@@ -31,11 +34,22 @@ def gen_sets(request, pk3):
 	return render(request, 'blog/age_set.html', {'age':pk3,'age_sets':age_sets})
 
 def sets(request, pk):
-	
+	sets_ = Sets.objects.order_by('pk').reverse()
+	max_id = sets_[1].id
+	other_sets = []
+	similar = set()
+	for i in range(3):
+		
+		while True:
+			random_id = random.randint(0, max_id)
+			if random_id not in similar:
+				break
+		other_sets.append(preview_of_set(sets_[random_id]))
+		similar.add(random_id)
 	set_ = Sets.objects.get(pk = pk)
 	
 	active = Activities.objects.filter(sets=set_.brief)
-	return render(request, 'blog/set.html', {'sets':set_, 'active':active})	
+	return render(request, 'blog/set.html', {'sets':set_, 'active':active, 'r':max_id,'other':other_sets})	
 
 def sets_new(request):
 	if request.method == "POST":

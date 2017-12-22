@@ -20,6 +20,15 @@
 
 <p class='headers'> Стоимость набора: {{sets.price}} рублей</p>
 <p > <a class = "buttons" href='https://vk.com/market-106980444?w=page-106980444_50113221'>Заказать набор</a></p>
+<br><br>
+   
+<div id='other_sets'> Похожие товары 
+<table border = 1> <tr> 
+{% for elem in other %}
+<td><div class="preview_2">{{elem|safe}}</div></td>
+{% endfor %}</tr></table>
+</div>
 <br><br><br><br>
-      </div>
+   {{r}}
+
       {% endblock content %}

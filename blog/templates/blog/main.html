@@ -3,22 +3,12 @@
 
     {% block content %}
 	<p> ЗДравствуйте, вы на главной странице сайта! </p>
-	<p> Предлагаем посмотреть на статьи, которые собраны на сайте </p>
-        {% for post in posts %}
-            
-               <div class="head_of_post">
-                    <div class="date">
-                        {{ post.published_date }} 
-                    </div>
-                    <div class="title">
-                        <a href="{% url 'sets' pk=post.pk %}">{{ post.title }}</a>
-                    </div>
-                </div>
-                <div class="article">
-                    <p>{{ post.text|safe|truncatewords:100 }}<a href="{% url 'sets' pk=post.pk %}">Читать далее</a></p>
-                </div>
-            
-        {% endfor %}
+	<p> Предлагаем посмотреть наборы, которые собраны на сайте </p>
+	
+	{% for el in prevs %}
+	<div class="preview_1">{{el|safe}}</div>
+	{% endfor%}
+{{r}}
     {% endblock content %}
  
     
