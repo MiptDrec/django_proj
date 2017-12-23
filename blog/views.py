@@ -8,9 +8,7 @@ best_articles = Post.objects.order_by('-views').all()[:3]
 # Create your views here.
 def main(request):
 	sets = Sets.objects.all()
-	prev_s = []
-	for el in sets:
-		prev_s.append(preview_of_set(el))
+	prev_s = preview_for_table(sets)
 
 	return render(request, 'blog/main.html', {'posts':sets,'prevs':prev_s})
 
@@ -31,7 +29,7 @@ def activities(request, pk1):
   
 def gen_sets(request, pk3):
 	age_sets = Sets.objects.filter(age__contains=pk3)	
-	return render(request, 'blog/age_set.html', {'age':pk3,'age_sets':age_sets})
+	return render(request, 'blog/age_set.html', {'age':pk3,'age_sets':preview_for_table(age_sets)})
 
 def sets(request, pk):
 	sets_ = Sets.objects.order_by('pk').reverse()
@@ -69,4 +67,11 @@ def preview_of_set(b):
 	string += '<a href="/sets/'+str(b.pk)+'">'+b.title+'</a> <br><img width=80% src="'
 	string += b.main_image.url+'"\></div></a>'
 	return string
-
+def preview_for_table(b):
+	string = '<table border = 1 table-layout="fixed" width=100%><tr width=2%>'
+	for i in range(0,len(b)):
+		if (i+1) % 4 == 0:
+			string += '</tr><tr width=2%>'
+		string+='<td width=2%>'+preview_of_set(b[i])+'</td>'
+	string +=  '</tr></table>'
+	return string

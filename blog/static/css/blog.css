@@ -1,5 +1,6 @@
 body,html {
    margin:0px;
+	margin-right:0px;
     padding:0px;
     
 }
@@ -8,18 +9,17 @@ body,html {
         height: 1%;
 }
 #container {
-    min-width:800px;
+
     width:100%;
     height:justify;
     min-height:600px;
    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
 }
 #header {
-	background-size:cover;
+
     background: url("/media/photos/1.png");
     height: 218px;
-    line-height: 30px;
-    min-width: 1263px;
+
     width: 100%;
 }
 ul {
@@ -246,7 +246,7 @@ background-color: rgb( 75, 183, 141 );
 
 .preview {
 
-
+	margin:10%;
 	text-align: center;
 	padding-top:5px;
 }
@@ -267,9 +267,12 @@ background-color: rgb( 75, 183, 141 );
 	
 	width: 30%;
 }
-.preview_2 {
+.previews {
 	
 	width: 100%;
+	border:1;
+	border-style:solid;
+
 
 }
 #other_sets {

@@ -4,11 +4,8 @@
     {% block content %}
 	<p> ЗДравствуйте, вы на главной странице сайта! </p>
 	<p> Предлагаем посмотреть наборы, которые собраны на сайте </p>
-	
-	{% for el in prevs %}
-	<div class="preview_1">{{el|safe}}</div>
-	{% endfor%}
-{{r}}
+	<div class ="previews">{{prevs|safe}}</div>
+
     {% endblock content %}
  
     
